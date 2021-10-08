@@ -3,7 +3,7 @@
 void main(){
 	int arr[test];
 	int x;
-	int y=5 , z=20;
+	int y=20 , z=20;
 	x = add(y,z);
 }
 ASDFGHJK,.
