@@ -1,0 +1,14 @@
+PROGRAM JK2
+$INCLUDE T24.BP I_COMMON
+$INCLUDE T24.BP I_EQUATE
+CRT "INPUT PORT NO"
+INPUT Y.PORT
+IF Y.PORT NE "" THEN
+Y.EXC.CMD = "SH ps -ef | grep ":Y.PORT:" | grep -v grep | awk '{print $2}' | xargs kill"
+EXECUTE Y.EXC.CMD
+Y.EXC.CMD = "SH nohup jbase_agent -p ":Y.PORT:" &"
+EXECUTE Y.EXC.CMD
+END ELSE
+CRT "INVALID PORT NO"
+END
+STOP
